@@ -19,7 +19,7 @@ class _LoginPageState extends State<LoginPage> {
         key: _formKey,
         child: Padding(
           padding:
-              const EdgeInsets.only(left: 20, right: 20, top: 20, bottom: 20),
+              const EdgeInsets.only(left: 20, right: 20, bottom: 20),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
