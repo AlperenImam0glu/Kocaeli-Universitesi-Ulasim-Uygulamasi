@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yazlab2_proje2_mobil/admin_page.dart';
 import 'package:yazlab2_proje2_mobil/user_Home_Page.dart';
 import 'package:yazlab2_proje2_mobil/login_page.dart';
 
@@ -14,6 +15,7 @@ class MyApp extends StatelessWidget {
       routes: {
         "/": (context) => LoginPage(),
         "/user_Home_Page": (context) => UserHomePage(),
+        "/admin_page": (context) => AdminPage(),
       },
     );
   }

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:yazlab2_proje2_mobil/admin_page.dart';
+import 'package:yazlab2_proje2_mobil/user_Home_Page.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -111,8 +113,22 @@ class _LoginPageState extends State<LoginPage> {
           _formKey.currentState!.save();
           debugPrint("username : $username , password : $password");
         }
-        if (username == "a") {
-          Navigator.pushNamed(context, "/user_Home_Page");
+        if (username == "kullanici" && password == "kullanici") {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => UserHomePage(
+                username: username,
+              ),
+            ),
+          );
+        } else if (username == "admin" && password == "admin") {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => AdminPage(),
+            ),
+          );
         } else {
           showDialog(
               context: context,
