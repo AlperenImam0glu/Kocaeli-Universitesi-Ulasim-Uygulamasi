@@ -61,10 +61,10 @@ class _LoginPageState extends State<LoginPage> {
     return TextFormField(
       decoration: InputDecoration(
           focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.purple),
+            borderSide: BorderSide(color: Colors.green),
           ),
           hintText: "Kullanıcı Adı",
-          labelStyle: TextStyle(color: Colors.amber),
+          labelStyle: TextStyle(color: Colors.green),
           border: OutlineInputBorder()),
       validator: (value) {
         if (value!.isEmpty) {
@@ -83,10 +83,10 @@ class _LoginPageState extends State<LoginPage> {
     return TextFormField(
       decoration: InputDecoration(
           focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.purple),
+            borderSide: BorderSide(color: Colors.green),
           ),
           hintText: "Şifre",
-          labelStyle: TextStyle(color: Colors.amber),
+          labelStyle: TextStyle(color: Colors.green),
           border: OutlineInputBorder()),
       validator: (value) {
         if (value!.isEmpty) {
@@ -112,6 +112,7 @@ class _LoginPageState extends State<LoginPage> {
           debugPrint("username : $username , password : $password");
         }
         if (username == "a") {
+          Navigator.pushNamed(context, "/user_Home_Page");
         } else {
           showDialog(
               context: context,
