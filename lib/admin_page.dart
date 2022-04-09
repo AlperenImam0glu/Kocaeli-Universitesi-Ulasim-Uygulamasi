@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_map/flutter_map.dart';
 
 class AdminPage extends StatefulWidget {
   @override
@@ -13,8 +14,20 @@ class _AdminPageState extends State<AdminPage> {
         backgroundColor: Colors.green,
         title: Text("Admin Kontrol Ekranı"),
       ),
-      body: Center(
-        child: Text("AnaSayfa"),
+      body: Stack(
+        children: <Widget>[
+          new FlutterMap(
+            options: new MapOptions(
+              minZoom: 10.0,
+            ),
+            layers: [
+              new TileLayerOptions(
+                  urlTemplate:
+                      'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                  subdomains: ['a', 'b', 'c']),
+            ],
+          ),
+        ],
       ),
     );
   }
