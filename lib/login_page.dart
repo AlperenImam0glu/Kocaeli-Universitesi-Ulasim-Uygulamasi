@@ -22,12 +22,26 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Image.asset('images/kocaeli-universitesi-logo.png', scale: 5),
+              Text(
+                'Kocaeli Üniversitesi Ulaşım Uygulaması',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 40,
+                  foreground: Paint()
+                    ..style = PaintingStyle.stroke
+                    ..strokeWidth = 4
+                    ..color = Colors.green[700]!,
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Image.asset('images/kocaeli-universitesi-logo.png', scale: 7),
               SizedBox(
                 height: 20,
               ),
               Text(
-                "Kullanıcı Adı",
+                "KULLANICI",
                 style: TextStyle(
                     fontStyle: FontStyle.italic, fontWeight: FontWeight.bold),
               ),
@@ -39,7 +53,7 @@ class _LoginPageState extends State<LoginPage> {
                 height: 20,
               ),
               Text(
-                "Şifre",
+                "ŞİFRE",
                 style: TextStyle(
                     fontStyle: FontStyle.italic, fontWeight: FontWeight.bold),
               ),

@@ -26,6 +26,8 @@ class _UserHomePageState extends State<UserHomePage> {
     "Izmit"
   ];
 
+  get border => null;
+
   void dropdownCallback(String? selectedValue) {
     if (selectedValue is String) {
       setState(() {
@@ -39,39 +41,62 @@ class _UserHomePageState extends State<UserHomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.green,
+        centerTitle: true,
         title: Text(
-            widget.username == null ? "kullanıcı adı hatalı" : widget.username),
+            widget.username == null ? "kullanıcı adı hatalı" : "Kullanıcı"),
       ),
       body: Center(
         child: Column(
           children: [
+            Container(
+                child: Expanded(
+              flex: 1,
+              child: Image.asset('images/$_dropdownValue.png'),
+            )),
             SizedBox(
               height: 30,
             ),
-            SizedBox(
-              height: 30,
+            Expanded(
+              flex: 1,
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Text(
+                    "Durak seçiniz",
+                    style: TextStyle(
+                        fontStyle: FontStyle.italic,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  DropdownButton(
+                    items: dropDownOptions
+                        .map<DropdownMenuItem<String>>((String mascot) {
+                      return DropdownMenuItem<String>(
+                          child: Text(mascot), value: mascot);
+                    }).toList(),
+                    value: _dropdownValue,
+                    onChanged: dropdownCallback,
+                    style: const TextStyle(
+                        color: Colors.blue,
+                        fontStyle: FontStyle.italic,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Text(
+                    "Secilen durak: $_dropdownValue",
+                    style: TextStyle(
+                        fontStyle: FontStyle.italic,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
             ),
-            Text("Durak Seciniz"),
-            SizedBox(
-              height: 30,
-            ),
-            DropdownButton(
-              items: dropDownOptions
-                  .map<DropdownMenuItem<String>>((String mascot) {
-                return DropdownMenuItem<String>(
-                    child: Text(mascot), value: mascot);
-              }).toList(),
-              value: _dropdownValue,
-              onChanged: dropdownCallback,
-              style: const TextStyle(
-                  color: Colors.blue,
-                  fontStyle: FontStyle.italic,
-                  fontWeight: FontWeight.bold),
-            ),
-            SizedBox(
-              height: 30,
-            ),
-            Text("Secilen durak: $_dropdownValue"),
           ],
         ),
       ),
