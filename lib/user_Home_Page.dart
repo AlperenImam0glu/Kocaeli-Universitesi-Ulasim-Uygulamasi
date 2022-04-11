@@ -49,10 +49,14 @@ class _UserHomePageState extends State<UserHomePage> {
         child: Column(
           children: [
             Container(
+                alignment: Alignment.topCenter,
                 child: Expanded(
-              flex: 1,
-              child: Image.asset('images/$_dropdownValue.png'),
-            )),
+                  flex: 1,
+                  child: Image.asset(
+                    'images/$_dropdownValue.png',
+                    alignment: Alignment.topCenter,
+                  ),
+                )),
             SizedBox(
               height: 30,
             ),
@@ -93,6 +97,18 @@ class _UserHomePageState extends State<UserHomePage> {
                     style: TextStyle(
                         fontStyle: FontStyle.italic,
                         fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  FlatButton(
+                    child: Text(
+                      'Konum Bildir',
+                      style: TextStyle(fontSize: 20.0),
+                    ),
+                    color: Colors.blueAccent,
+                    textColor: Colors.white,
+                    onPressed: () {},
                   ),
                 ],
               ),
