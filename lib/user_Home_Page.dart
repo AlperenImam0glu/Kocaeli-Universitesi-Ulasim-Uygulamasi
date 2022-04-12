@@ -11,6 +11,7 @@ class UserHomePage extends StatefulWidget {
 
 class _UserHomePageState extends State<UserHomePage> {
   String _dropdownValue = "Izmit";
+  int a = 5;
   List<String> dropDownOptions = [
     "Başiskele",
     "Çayırova",
@@ -25,7 +26,6 @@ class _UserHomePageState extends State<UserHomePage> {
     "Körfez",
     "Izmit"
   ];
-
   get border => null;
 
   void dropdownCallback(String? selectedValue) {

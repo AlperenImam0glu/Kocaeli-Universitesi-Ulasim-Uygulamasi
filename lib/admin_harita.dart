@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:yazlab2_proje2_mobil/Duraklar.dart';
-import 'package:yazlab2_proje2_mobil/Duraklar.dart';
 
-class AdminPage extends StatefulWidget {
+class Harita extends StatefulWidget {
   @override
-  State<AdminPage> createState() => _AdminPageState();
+  State<Harita> createState() => _HaritaState();
 }
 
-class _AdminPageState extends State<AdminPage> {
+class _HaritaState extends State<Harita> {
   Duraklar izmit = new Duraklar(40.764759, 29.940957);
   Duraklar basiskele = new Duraklar(40.709633, 29.923609);
   Duraklar cayirova = new Duraklar(40.823270, 29.372250);
@@ -17,7 +16,7 @@ class _AdminPageState extends State<AdminPage> {
   Duraklar derince = new Duraklar(40.755790, 29.831286);
 
   final duraklistesi = <Duraklar>[];
-  _AdminPageState() {
+  _HaritaState() {
     duraklistesi.add(izmit);
     duraklistesi.add(basiskele);
     duraklistesi.add(cayirova);
@@ -81,7 +80,6 @@ class _AdminPageState extends State<AdminPage> {
       );
       markerlar.add(marker);
     }
-
     return markerlar;
   }
 }

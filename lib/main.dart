@@ -16,6 +16,8 @@ class MyApp extends StatelessWidget {
         "/": (context) => LoginPage(),
         "/user_Home_Page": (context) => UserHomePage(),
         "/admin_page": (context) => AdminPage(),
+        "/admin_yolcu_sayilari": (context) => AdminPage(),
+        "/admin_harita": (context) => AdminPage(),
       },
     );
   }
