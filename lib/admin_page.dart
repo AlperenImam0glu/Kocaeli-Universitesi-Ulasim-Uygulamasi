@@ -1,8 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_map/flutter_map.dart';
-import 'package:latlong2/latlong.dart';
-import 'package:yazlab2_proje2_mobil/Duraklar.dart';
-import 'package:yazlab2_proje2_mobil/Duraklar.dart';
 import 'package:yazlab2_proje2_mobil/admin_harita.dart';
 import 'package:yazlab2_proje2_mobil/admin_yolcu_sayilari.dart';
 
