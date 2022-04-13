@@ -19,20 +19,9 @@ class _AdminPageState extends State<AdminPage> {
       ),
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            SizedBox(
-              height: 30,
-            ),
-            FlatButton(
-              child: FittedBox(
-                fit: BoxFit.contain,
-                child: Text(
-                  'Harita Görüntüle',
-                  style: TextStyle(fontSize: 20.0),
-                ),
-              ),
-              color: Colors.blueAccent,
-              textColor: Colors.white,
+            TextButton.icon(
               onPressed: () {
                 Navigator.push(
                   context,
@@ -41,17 +30,20 @@ class _AdminPageState extends State<AdminPage> {
                   ),
                 );
               },
-            ),
-            SizedBox(
-              height: 30,
-            ),
-            FlatButton(
-              child: Text(
-                'Yolcu Listesi Görüntüle',
-                style: TextStyle(fontSize: 20.0),
+              icon: const Icon(
+                Icons.map,
+                color: Colors.black,
               ),
-              color: Colors.blueAccent,
-              textColor: Colors.white,
+              label: const Text(
+                'Haritayı Göster',
+                style: TextStyle(
+                    fontSize: 30,
+                    color: Colors.black,
+                    fontStyle: FontStyle.italic,
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
+            TextButton.icon(
               onPressed: () {
                 Navigator.push(
                   context,
@@ -60,6 +52,40 @@ class _AdminPageState extends State<AdminPage> {
                   ),
                 );
               },
+              icon: const Icon(
+                Icons.room_rounded,
+                color: Colors.black,
+              ),
+              label: const Text(
+                'Kullanıcı Konumları',
+                style: TextStyle(
+                    fontSize: 30,
+                    color: Colors.black,
+                    fontStyle: FontStyle.italic,
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
+            TextButton.icon(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => YolcuSayilari(),
+                  ),
+                );
+              },
+              icon: const Icon(
+                Icons.calculate_outlined,
+                color: Colors.black,
+              ),
+              label: const Text(
+                'Yol Oluştur',
+                style: TextStyle(
+                    fontSize: 30,
+                    color: Colors.black,
+                    fontStyle: FontStyle.italic,
+                    fontWeight: FontWeight.bold),
+              ),
             ),
           ],
         ),

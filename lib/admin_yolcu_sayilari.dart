@@ -28,7 +28,7 @@ class _YolcuSayilariState extends State<YolcuSayilari> {
       appBar: AppBar(
         backgroundColor: Colors.green,
         centerTitle: true,
-        title: Text("Kullanıcı İstekleri"),
+        title: Text("Kullanıcı Konumları"),
       ),
       body: buildData(),
       floatingActionButton: FloatingActionButton(

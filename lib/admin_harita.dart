@@ -31,7 +31,7 @@ class _HaritaState extends State<Harita> {
       appBar: AppBar(
         backgroundColor: Colors.green,
         centerTitle: true,
-        title: Text("Admin Kontrol Ekranı"),
+        title: Text("Admin Harita Ekranı"),
       ),
       body: Column(
         children: <Widget>[
