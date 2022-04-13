@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:yazlab2_proje2_mobil/admin_page.dart';
-import 'package:yazlab2_proje2_mobil/user_Home_Page.dart';
+import 'package:yazlab2_proje2_mobil/admin_pages/admin_page.dart';
+import 'package:yazlab2_proje2_mobil/admin_pages/admin_yol_hesapla.dart';
+import 'package:yazlab2_proje2_mobil/user_pages/user_Home_Page.dart';
 import 'package:yazlab2_proje2_mobil/login_page.dart';
 
 void main() {
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
         "/admin_page": (context) => AdminPage(),
         "/admin_yolcu_sayilari": (context) => AdminPage(),
         "/admin_harita": (context) => AdminPage(),
+        "/admin_yol_hesapla": (context) => AdminYolHesapla(),
       },
     );
   }

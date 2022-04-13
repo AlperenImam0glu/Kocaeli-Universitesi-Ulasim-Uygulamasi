@@ -100,7 +100,9 @@ class _UserHomePageState extends State<UserHomePage> {
                     height: 30,
                   ),
                   TextButton.icon(
-                    onPressed: () {},
+                    onPressed: () {
+                      _showDialog();
+                    },
                     icon: const Icon(
                       Icons.room_rounded,
                       color: Colors.black,
@@ -120,5 +122,24 @@ class _UserHomePageState extends State<UserHomePage> {
         ),
       ),
     );
+  }
+
+  void _showDialog() {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text("Konumunuz Alınmıştır"),
+            actions: [
+              MaterialButton(
+                color: Colors.black,
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: Text("tamam", style: TextStyle(color: Colors.white)),
+              )
+            ],
+          );
+        });
   }
 }

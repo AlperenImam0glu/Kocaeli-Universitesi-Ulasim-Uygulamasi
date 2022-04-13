@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
-import 'package:yazlab2_proje2_mobil/Duraklar.dart';
+import 'package:yazlab2_proje2_mobil/models/Duraklar.dart';
 
 class Harita extends StatefulWidget {
   @override
@@ -9,19 +9,33 @@ class Harita extends StatefulWidget {
 }
 
 class _HaritaState extends State<Harita> {
-  Duraklar izmit = new Duraklar(40.764759, 29.940957);
-  Duraklar basiskele = new Duraklar(40.709633, 29.923609);
-  Duraklar cayirova = new Duraklar(40.823270, 29.372250);
-  Duraklar darica = new Duraklar(40.773861, 29.401166);
-  Duraklar derince = new Duraklar(40.755790, 29.831286);
+  Duraklar Basiskele = new Duraklar(40.709633, 29.923609);
+  Duraklar Cayirova = new Duraklar(40.823270, 29.372250);
+  Duraklar Darica = new Duraklar(40.773861, 29.401166);
+  Duraklar Derince = new Duraklar(40.755790, 29.831286);
+  Duraklar Dilovasi = new Duraklar(40.785418, 29.541543);
+  Duraklar Gebze = new Duraklar(40.802446, 29.439632);
+  Duraklar Golcuk = new Duraklar(40.716607, 29.817274);
+  Duraklar Kandira = new Duraklar(41.067325, 30.153739);
+  Duraklar Karamursel = new Duraklar(40.690930, 29.615780);
+  Duraklar Kartepe = new Duraklar(40.752813, 30.023271);
+  Duraklar Korfez = new Duraklar(40.760902, 29.786963);
+  Duraklar Izmit = new Duraklar(40.764759, 29.940957);
 
   final duraklistesi = <Duraklar>[];
   _HaritaState() {
-    duraklistesi.add(izmit);
-    duraklistesi.add(basiskele);
-    duraklistesi.add(cayirova);
-    duraklistesi.add(darica);
-    duraklistesi.add(derince);
+    duraklistesi.add(Basiskele);
+    duraklistesi.add(Cayirova);
+    duraklistesi.add(Darica);
+    duraklistesi.add(Derince);
+    duraklistesi.add(Dilovasi);
+    duraklistesi.add(Gebze);
+    duraklistesi.add(Golcuk);
+    duraklistesi.add(Kandira);
+    duraklistesi.add(Karamursel);
+    duraklistesi.add(Kartepe);
+    duraklistesi.add(Korfez);
+    duraklistesi.add(Izmit);
   }
 
   @override
@@ -36,12 +50,7 @@ class _HaritaState extends State<Harita> {
       body: Column(
         children: <Widget>[
           Expanded(
-            flex: 2,
             child: mapWidget(),
-          ),
-          Expanded(
-            flex: 1,
-            child: Text("BURADA İSLEMLER OLACAK"),
           ),
         ],
       ),

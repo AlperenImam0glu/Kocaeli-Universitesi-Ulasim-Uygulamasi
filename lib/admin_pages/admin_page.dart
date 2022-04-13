@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:yazlab2_proje2_mobil/admin_harita.dart';
-import 'package:yazlab2_proje2_mobil/admin_yolcu_sayilari.dart';
+import 'package:yazlab2_proje2_mobil/admin_pages/admin_harita.dart';
+import 'package:yazlab2_proje2_mobil/admin_pages/admin_yol_hesapla.dart';
+import 'package:yazlab2_proje2_mobil/admin_pages/admin_yolcu_sayilari.dart';
 
 class AdminPage extends StatefulWidget {
   @override
@@ -70,7 +71,7 @@ class _AdminPageState extends State<AdminPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => YolcuSayilari(),
+                    builder: (context) => AdminYolHesapla(),
                   ),
                 );
               },

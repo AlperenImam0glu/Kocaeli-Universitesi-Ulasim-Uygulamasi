@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:yazlab2_proje2_mobil/admin_page.dart';
-import 'package:yazlab2_proje2_mobil/user_Home_Page.dart';
+import 'package:yazlab2_proje2_mobil/admin_pages/admin_page.dart';
+import 'package:yazlab2_proje2_mobil/user_pages/user_Home_Page.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -161,8 +161,17 @@ class _LoginPageState extends State<LoginPage> {
               context: context,
               builder: (BuildContext context) {
                 return AlertDialog(
-                  title: Text("Hata"),
-                  content: Text("Giriş Bilgileriniz Hatalı"),
+                  title: Text("Giriş Bilgileri Hatalıdır"),
+                  actions: [
+                    MaterialButton(
+                      color: Colors.black,
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      child:
+                          Text("tamam", style: TextStyle(color: Colors.white)),
+                    )
+                  ],
                 );
               });
         }

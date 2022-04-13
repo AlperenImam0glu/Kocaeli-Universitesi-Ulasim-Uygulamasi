@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:yazlab2_proje2_mobil/data/dbHelper.dart';
 import 'package:yazlab2_proje2_mobil/models/kullanicilar.dart';
-import 'package:yazlab2_proje2_mobil/kullanici_istek_ekle.dart';
+import 'package:yazlab2_proje2_mobil/admin_pages/admin_kullanici_konum_duzenle.dart';
 
 class YolcuSayilari extends StatefulWidget {
   @override
