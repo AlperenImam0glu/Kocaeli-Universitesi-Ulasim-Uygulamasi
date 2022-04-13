@@ -65,6 +65,8 @@ class _LoginPageState extends State<LoginPage> {
                 height: 30,
               ),
               _LoginButton(),
+              adminEkrani(),
+              kullaniciEkrani(),
             ],
           ),
         ),
@@ -152,5 +154,31 @@ class _LoginPageState extends State<LoginPage> {
                 );
               });
         }
+      });
+  Widget adminEkrani() => RaisedButton(
+      child: Text(
+        "Kullanici Ekrani",
+        style: TextStyle(fontWeight: FontWeight.bold),
+      ),
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => UserHomePage(),
+          ),
+        );
+      });
+  Widget kullaniciEkrani() => RaisedButton(
+      child: Text(
+        "Admin Ekranı",
+        style: TextStyle(fontWeight: FontWeight.bold),
+      ),
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => AdminPage(),
+          ),
+        );
       });
 }

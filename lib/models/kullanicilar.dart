@@ -18,8 +18,8 @@ class Kullanici {
   }
 
   Kullanici.fromObject(dynamic o) {
-    this.id = o["id"];
-    this.durakId = o["durakId"];
-    this.durum = o["durum"];
+    this.id = int.parse(o["id"].toString());
+    this.durakId = int.parse(o["durakId"].toString());
+    this.durum = int.parse(o["durum"].toString());
   }
 }

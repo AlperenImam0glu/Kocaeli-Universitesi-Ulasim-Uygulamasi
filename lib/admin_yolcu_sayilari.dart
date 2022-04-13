@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:yazlab2_proje2_mobil/data/dbHelper.dart';
 import 'package:yazlab2_proje2_mobil/models/kullanicilar.dart';
+import 'package:yazlab2_proje2_mobil/kullanici_istek_ekle.dart';
 
 class YolcuSayilari extends StatefulWidget {
   @override
@@ -14,10 +15,7 @@ class _YolcuSayilariState extends State<YolcuSayilari> {
 
   @override
   void initState() {
-    var kullaniciFuture = dbHelper.getKullanici();
-    kullaniciFuture.then((data) {
-      this.kullaniciListesi = data;
-    });
+    getListe();
   }
 
   @override
@@ -30,6 +28,15 @@ class _YolcuSayilariState extends State<YolcuSayilari> {
         title: Text("Kullanıcı İstekleri"),
       ),
       body: buildData(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          goTokullaniciIstek();
+        },
+        child: Icon(
+          Icons.add,
+        ),
+        tooltip: "yeni ürün ekle",
+      ),
     );
   }
 
@@ -56,5 +63,23 @@ class _YolcuSayilariState extends State<YolcuSayilari> {
         );
       },
     );
+  }
+
+  void goTokullaniciIstek() async {
+    bool? result = await Navigator.push(
+        context, MaterialPageRoute(builder: (context) => kullaniciIstekEkle()));
+    if (result != null) {
+      if (result) {
+        getListe();
+      }
+    }
+  }
+
+  void getListe() async {
+    var kullaniciFuture = dbHelper.getKullanici();
+    kullaniciFuture.then((data) {
+      this.kullaniciListesi = data;
+      kullaniciSayac = data.length;
+    });
   }
 }

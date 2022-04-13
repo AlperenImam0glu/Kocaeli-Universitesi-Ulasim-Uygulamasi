@@ -1,21 +1,23 @@
 import 'dart:async';
+import 'package:flutter/cupertino.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 import 'package:yazlab2_proje2_mobil/models/kullanicilar.dart';
 
 class DbHelper {
-  late Database _db;
+  Database? _db;
 
   Future<Database> get db async {
     if (_db == null) {
       _db = await initializeDb();
     }
-    return _db;
+    return _db!;
   }
 
   Future<Database> initializeDb() async {
-    String dbPath = join(await getDatabasesPath(), "etrade.db");
-    var eTradeDb = await openDatabase(dbPath, version: 1, onCreate: createDb);
+    String dbPath = await getDatabasesPath();
+    final Path = await join(dbPath, "etrade.db");
+    var eTradeDb = await openDatabase(Path, version: 1, onCreate: createDb);
     return eTradeDb;
   }
 

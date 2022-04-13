@@ -48,15 +48,15 @@ class _UserHomePageState extends State<UserHomePage> {
       body: Center(
         child: Column(
           children: [
-            Container(
-                alignment: Alignment.topCenter,
-                child: Expanded(
-                  flex: 1,
-                  child: Image.asset(
-                    'images/$_dropdownValue.png',
-                    alignment: Alignment.topCenter,
-                  ),
-                )),
+            
+              Expanded(
+                flex: 1,
+                child: Image.asset(
+                  'images/$_dropdownValue.png',
+                 // alignment: Alignment.topCenter,
+                ),
+              ),
+            
             SizedBox(
               height: 30,
             ),
@@ -70,8 +70,7 @@ class _UserHomePageState extends State<UserHomePage> {
                   Text(
                     "Durak seçiniz",
                     style: TextStyle(
-                        fontStyle: FontStyle.italic,
-                        fontWeight: FontWeight.bold),
+                        fontStyle: FontStyle.italic, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(
                     height: 30,
@@ -95,8 +94,7 @@ class _UserHomePageState extends State<UserHomePage> {
                   Text(
                     "Secilen durak: $_dropdownValue",
                     style: TextStyle(
-                        fontStyle: FontStyle.italic,
-                        fontWeight: FontWeight.bold),
+                        fontStyle: FontStyle.italic, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(
                     height: 30,
