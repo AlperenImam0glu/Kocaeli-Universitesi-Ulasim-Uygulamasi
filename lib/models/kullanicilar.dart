@@ -1,7 +1,7 @@
 class Kullanici {
-  late int id;
-  late int durakId;
-  late int durum;
+  int? id;
+  int? durakId;
+  int? durum;
 
   Kullanici({required this.durakId, required this.durum});
   Kullanici.withId(
@@ -18,8 +18,8 @@ class Kullanici {
   }
 
   Kullanici.fromObject(dynamic o) {
-    this.id = int.parse(o["id"].toString());
-    this.durakId = int.parse(o["durakId"].toString());
-    this.durum = int.parse(o["durum"].toString());
+    this.id = o["id"];
+    this.durakId = o["durakId"];
+    this.durum = o["durum"];
   }
 }

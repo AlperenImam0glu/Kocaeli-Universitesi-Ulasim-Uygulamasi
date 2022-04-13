@@ -57,6 +57,12 @@ class _kullaniciIstekEkleState extends State<kullaniciIstekEkle> {
   void addKullaniciIstek() async {
     var result = await dbHelper.insert(Kullanici(
         durakId: int.parse(txtDurakId.text), durum: int.parse(txtDurum.text)));
-    Navigator.pop(context, result);
+    bool donus;
+    if (result == 1) {
+      donus = true;
+    } else {
+      donus = false;
+    }
+    Navigator.pop(context, donus);
   }
 }

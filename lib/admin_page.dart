@@ -24,9 +24,12 @@ class _AdminPageState extends State<AdminPage> {
               height: 30,
             ),
             FlatButton(
-              child: Text(
-                'Harita Görüntüle',
-                style: TextStyle(fontSize: 20.0),
+              child: FittedBox(
+                fit: BoxFit.contain,
+                child: Text(
+                  'Harita Görüntüle',
+                  style: TextStyle(fontSize: 20.0),
+                ),
               ),
               color: Colors.blueAccent,
               textColor: Colors.white,

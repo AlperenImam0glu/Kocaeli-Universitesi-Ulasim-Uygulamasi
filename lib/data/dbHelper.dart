@@ -16,14 +16,14 @@ class DbHelper {
 
   Future<Database> initializeDb() async {
     String dbPath = await getDatabasesPath();
-    final Path = await join(dbPath, "etrade.db");
+    final Path = await join(dbPath, "kullanici.db");
     var eTradeDb = await openDatabase(Path, version: 1, onCreate: createDb);
     return eTradeDb;
   }
 
   void createDb(Database db, int version) async {
     await db.execute(
-        "Create table kullanicilar(id integer primarykey,durakId integer,durum integer)");
+        "Create table kullanici(id integer primarykey,durakId integer,durum integer)");
   }
 
   Future<List<Kullanici>> getKullanici() async {

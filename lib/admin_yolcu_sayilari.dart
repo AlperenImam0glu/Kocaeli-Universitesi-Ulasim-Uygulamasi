@@ -14,8 +14,11 @@ class _YolcuSayilariState extends State<YolcuSayilari> {
   int kullaniciSayac = 0;
 
   @override
+  // ignore: must_call_super
   void initState() {
-    getListe();
+    setState(() {
+      getListe();
+    });
   }
 
   @override
@@ -50,7 +53,7 @@ class _YolcuSayilariState extends State<YolcuSayilari> {
           child: ListTile(
             leading: CircleAvatar(
               backgroundColor: Colors.black12,
-              child: Text("P"),
+              child: Text("K"),
             ),
             title: Text(
               this.kullaniciListesi[position].durakId.toString(),
@@ -70,7 +73,9 @@ class _YolcuSayilariState extends State<YolcuSayilari> {
         context, MaterialPageRoute(builder: (context) => kullaniciIstekEkle()));
     if (result != null) {
       if (result) {
-        getListe();
+        setState(() {
+          getListe();
+        });
       }
     }
   }

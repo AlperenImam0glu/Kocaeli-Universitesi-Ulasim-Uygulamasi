@@ -15,59 +15,66 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      body: Form(
-        key: _formKey,
-        child: Padding(
-          padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                'Kocaeli Üniversitesi Ulaşım Uygulaması',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 40,
-                  foreground: Paint()
-                    ..style = PaintingStyle.stroke
-                    ..strokeWidth = 4
-                    ..color = Colors.green[700]!,
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Form(
+          key: _formKey,
+          child: Padding(
+            padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  'Kocaeli Üniversitesi Ulaşım Uygulaması',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 40,
+                    foreground: Paint()
+                      ..style = PaintingStyle.stroke
+                      ..strokeWidth = 4
+                      ..color = Colors.green[700]!,
+                  ),
                 ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Image.asset('images/kocaeli-universitesi-logo.png', scale: 7),
-              SizedBox(
-                height: 20,
-              ),
-              Text(
-                "KULLANICI",
-                style: TextStyle(
-                    fontStyle: FontStyle.italic, fontWeight: FontWeight.bold),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              TextFromField_Kullanici(),
-              SizedBox(
-                height: 20,
-              ),
-              Text(
-                "ŞİFRE",
-                style: TextStyle(
-                    fontStyle: FontStyle.italic, fontWeight: FontWeight.bold),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              TextFromField_Sifre(),
-              SizedBox(
-                height: 30,
-              ),
-              _LoginButton(),
-              adminEkrani(),
-              kullaniciEkrani(),
-            ],
+                SizedBox(
+                  height: 20,
+                ),
+                Image.asset('images/kocaeli-universitesi-logo.png', scale: 7),
+                SizedBox(
+                  height: 20,
+                ),
+                Text(
+                  "KULLANICI",
+                  style: TextStyle(
+                      fontStyle: FontStyle.italic, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                TextFromField_Kullanici(),
+                SizedBox(
+                  height: 20,
+                ),
+                Text(
+                  "ŞİFRE",
+                  style: TextStyle(
+                      fontStyle: FontStyle.italic, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                TextFromField_Sifre(),
+                SizedBox(
+                  height: 30,
+                ),
+                _LoginButton(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [ adminEkrani(),
+                kullaniciEkrani(),],
+                )
+               
+              ],
+            ),
           ),
         ),
       ),
