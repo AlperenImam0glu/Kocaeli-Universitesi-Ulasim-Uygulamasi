@@ -26,35 +26,35 @@ class _AdminYolHesaplaState extends State<AdminYolHesapla> {
                   SizedBox(
                     height: 10,
                   ),
-                  durakVeSayi("Basiskele   "),
+                  durakVeSayi("Basiskele"),
                   SizedBox(
                     height: yukseklik,
                   ),
-                  durakVeSayi("Çayırova    "),
+                  durakVeSayi("Çayırova"),
                   SizedBox(
                     height: yukseklik,
                   ),
-                  durakVeSayi("Darıca        "),
+                  durakVeSayi("Darıca"),
                   SizedBox(
                     height: yukseklik,
                   ),
-                  durakVeSayi("Derince      "),
+                  durakVeSayi("Derince"),
                   SizedBox(
                     height: yukseklik,
                   ),
-                  durakVeSayi("Dilovası      "),
+                  durakVeSayi("Dilovası"),
                   SizedBox(
                     height: yukseklik,
                   ),
-                  durakVeSayi("Gebze        "),
+                  durakVeSayi("Gebze"),
                   SizedBox(
                     height: yukseklik,
                   ),
-                  durakVeSayi("Golcuk       "),
+                  durakVeSayi("Golcuk"),
                   SizedBox(
                     height: yukseklik,
                   ),
-                  durakVeSayi("Kandıra      "),
+                  durakVeSayi("Kandıra"),
                   SizedBox(
                     height: yukseklik,
                   ),
@@ -62,22 +62,23 @@ class _AdminYolHesaplaState extends State<AdminYolHesapla> {
                   SizedBox(
                     height: yukseklik,
                   ),
-                  durakVeSayi("Golcuk       "),
+                  durakVeSayi("Golcuk"),
                   SizedBox(
                     height: yukseklik,
                   ),
-                  durakVeSayi("Kartepe      "),
+                  durakVeSayi("Kartepe"),
                   SizedBox(
                     height: yukseklik,
                   ),
-                  durakVeSayi("Korfez        "),
+                  durakVeSayi("Korfez"),
                   SizedBox(
                     height: yukseklik,
                   ),
-                  durakVeSayi("İzmit          "),
+                  durakVeSayi("İzmit"),
                   SizedBox(
                     height: yukseklik,
                   ),
+                  durakVeSayi("Yol maliyeti"),
                   SizedBox(
                     height: 10,
                   ),
@@ -106,10 +107,7 @@ class _AdminYolHesaplaState extends State<AdminYolHesapla> {
       SizedBox(
         width: 100,
       ),
-      Text("$durak"),
-      SizedBox(
-        width: 50,
-      ),
+      SizedBox(width: 150, child: Text("$durak")),
       SizedBox(
         width: 100,
         height: 40,
