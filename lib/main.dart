@@ -21,7 +21,9 @@ class MyApp extends StatelessWidget {
         "/admin_yolcu_sayilari": (context) => AdminPage(),
         "/admin_harita": (context) => AdminPage(),
         "/admin_yol_hesapla": (context) => AdminYolHesapla(),
-         "/admin_hesap": (context) => Hesap(durakVerileri: [0,0,0,0,0,0,0,0,0,0,0,0],),
+        "/admin_hesap": (context) => Hesap(
+              durakVerileri: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            ),
       },
     );
   }

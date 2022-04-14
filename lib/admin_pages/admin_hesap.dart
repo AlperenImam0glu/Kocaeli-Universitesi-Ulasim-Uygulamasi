@@ -27,18 +27,25 @@ class _HesapState extends State<Hesap> {
 
   final duraklistesi = <Duraklar>[];
   veriler() {
-    duraklistesi.add(Basiskele);
+    duraklistesi.add(Kandira);
     duraklistesi.add(Cayirova);
     duraklistesi.add(Darica);
-    duraklistesi.add(Derince);
-    duraklistesi.add(Dilovasi);
     duraklistesi.add(Gebze);
-    duraklistesi.add(Golcuk);
-    duraklistesi.add(Kandira);
+    duraklistesi.add(Dilovasi);
     duraklistesi.add(Karamursel);
-    duraklistesi.add(Kartepe);
     duraklistesi.add(Korfez);
+    duraklistesi.add(Golcuk);
+    duraklistesi.add(Derince);
+    duraklistesi.add(Basiskele);
+    duraklistesi.add(Kartepe);
     duraklistesi.add(Izmit);
+  }
+
+  var points = <LatLng>[];
+  pointleriEkle(Duraklar durak) {
+    double lat = durak.lat;
+    double long = durak.long;
+    points.add(LatLng(lat, long));
   }
 
   @override
@@ -46,14 +53,14 @@ class _HesapState extends State<Hesap> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text("YOL HESABI VE HARİTA"),
+        title: Text("YOL HESABI"),
         backgroundColor: Colors.green,
       ),
       body: Center(
         child: Container(
           child: Column(
             children: [
-              Text(widget.durakVerileri.toString()),
+              // Text(widget.durakVerileri.toString()),
               Expanded(
                 child: mapWidget(),
               ),
@@ -67,18 +74,37 @@ class _HesapState extends State<Hesap> {
   FlutterMap mapWidget() {
     return new FlutterMap(
       options: new MapOptions(
-        minZoom: 5.0,
-        center: new LatLng(40.769320, 29.943776),
-      ),
+          minZoom: 5.0, center: new LatLng(40.769320, 29.943776), maxZoom: 12),
       layers: [
         new TileLayerOptions(
             urlTemplate: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
             subdomains: ['a', 'b', 'c']),
         new MarkerLayerOptions(
           markers: duraklar(),
-        )
+        ),
+        new PolylineLayerOptions(
+          polylines: cizgiler(),
+        ),
       ],
     );
+  }
+
+  List<Polyline> cizgiler() {
+    points.clear();
+    var cizgi = <Polyline>[];
+
+    for (int i = 0; i < widget.durakVerileri.length - 1; i++) {
+      if (widget.durakVerileri[i] != 0) {
+        pointleriEkle(duraklistesi[i]);
+      }
+    }
+    Duraklar okul = new Duraklar(40.823658, 29.922649);
+
+    pointleriEkle(okul);
+    Polyline polyline =
+        new Polyline(points: (points), strokeWidth: 2.0, color: Colors.red);
+    cizgi.add(polyline);
+    return cizgi;
   }
 
   List<Marker> duraklar() {

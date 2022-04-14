@@ -97,11 +97,13 @@ class _AdminYolHesaplaState extends State<AdminYolHesapla> {
                     onPressed: () {
                       var duraklistesi;
                       duraklistesi = listeyeYaz();
-                      print("duraklar"+duraklistesi.toString());
+                      print("duraklar" + duraklistesi.toString());
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) =>Hesap(durakVerileri: duraklistesi,),
+                          builder: (context) => Hesap(
+                            durakVerileri: duraklistesi,
+                          ),
                         ),
                       );
                     },
@@ -149,17 +151,17 @@ class _AdminYolHesaplaState extends State<AdminYolHesapla> {
       YolMaliyetiText.text = "1";
     }
     var duraklistesi = <double>[];
-    duraklistesi.add(double.parse(BasiskeleText.text));
+    duraklistesi.add(double.parse(KandiraText.text));
     duraklistesi.add(double.parse(CayirovaText.text));
     duraklistesi.add(double.parse(DaricaText.text));
-    duraklistesi.add(double.parse(DerinceText.text));
-    duraklistesi.add(double.parse(DilovasiText.text));
     duraklistesi.add(double.parse(GebzeText.text));
-    duraklistesi.add(double.parse(GolcukText.text));
-    duraklistesi.add(double.parse(KandiraText.text));
+    duraklistesi.add(double.parse(DilovasiText.text));
     duraklistesi.add(double.parse(KaramurselText.text));
-    duraklistesi.add(double.parse(KartepeText.text));
     duraklistesi.add(double.parse(KorfezText.text));
+    duraklistesi.add(double.parse(GolcukText.text));
+    duraklistesi.add(double.parse(DerinceText.text));
+    duraklistesi.add(double.parse(BasiskeleText.text));
+    duraklistesi.add(double.parse(KartepeText.text));
     duraklistesi.add(double.parse(IzmitText.text));
     duraklistesi.add(double.parse(YolMaliyetiText.text));
     return duraklistesi;
