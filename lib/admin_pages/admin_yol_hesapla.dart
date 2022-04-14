@@ -9,6 +9,20 @@ class AdminYolHesapla extends StatefulWidget {
 
 class _AdminYolHesaplaState extends State<AdminYolHesapla> {
   double yukseklik = 5;
+  TextEditingController BasiskeleText = TextEditingController(text: '0');
+  TextEditingController CayirovaText = TextEditingController(text: '0');
+  TextEditingController DaricaText = TextEditingController(text: '0');
+  TextEditingController DerinceText = TextEditingController(text: '0');
+  TextEditingController DilovasiText = TextEditingController(text: '0');
+  TextEditingController GebzeText = TextEditingController(text: '0');
+  TextEditingController GolcukText = TextEditingController(text: '0');
+  TextEditingController KandiraText = TextEditingController(text: '0');
+  TextEditingController KaramurselText = TextEditingController(text: '0');
+  TextEditingController KartepeText = TextEditingController(text: '0');
+  TextEditingController KorfezText = TextEditingController(text: '0');
+  TextEditingController IzmitText = TextEditingController(text: '0');
+  TextEditingController YolMaliyetiText = TextEditingController(text: '0');
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,64 +40,64 @@ class _AdminYolHesaplaState extends State<AdminYolHesapla> {
                   SizedBox(
                     height: 10,
                   ),
-                  durakVeSayi("Basiskele"),
+                  durakVeSayi("Başiskele", BasiskeleText),
                   SizedBox(
                     height: yukseklik,
                   ),
-                  durakVeSayi("Çayırova"),
+                  durakVeSayi("Çayırova", CayirovaText),
                   SizedBox(
                     height: yukseklik,
                   ),
-                  durakVeSayi("Darıca"),
+                  durakVeSayi("Darıca", DaricaText),
                   SizedBox(
                     height: yukseklik,
                   ),
-                  durakVeSayi("Derince"),
+                  durakVeSayi("Derince", DerinceText),
                   SizedBox(
                     height: yukseklik,
                   ),
-                  durakVeSayi("Dilovası"),
+                  durakVeSayi("Dilovası", DilovasiText),
                   SizedBox(
                     height: yukseklik,
                   ),
-                  durakVeSayi("Gebze"),
+                  durakVeSayi("Gebze", GebzeText),
                   SizedBox(
                     height: yukseklik,
                   ),
-                  durakVeSayi("Golcuk"),
+                  durakVeSayi("Gölcük", GolcukText),
                   SizedBox(
                     height: yukseklik,
                   ),
-                  durakVeSayi("Kandıra"),
+                  durakVeSayi("Kandıra", KandiraText),
                   SizedBox(
                     height: yukseklik,
                   ),
-                  durakVeSayi("Karamürsel"),
+                  durakVeSayi("Karamürsel", KaramurselText),
                   SizedBox(
                     height: yukseklik,
                   ),
-                  durakVeSayi("Golcuk"),
+                  durakVeSayi("Kartepe", KartepeText),
                   SizedBox(
                     height: yukseklik,
                   ),
-                  durakVeSayi("Kartepe"),
+                  durakVeSayi("Korfez", KorfezText),
                   SizedBox(
                     height: yukseklik,
                   ),
-                  durakVeSayi("Korfez"),
+                  durakVeSayi("İzmit", IzmitText),
                   SizedBox(
                     height: yukseklik,
                   ),
-                  durakVeSayi("İzmit"),
-                  SizedBox(
-                    height: yukseklik,
-                  ),
-                  durakVeSayi("Yol maliyeti"),
+                  durakVeSayi("Yol maliyeti", YolMaliyetiText),
                   SizedBox(
                     height: 10,
                   ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      var duraklistesi;
+                      duraklistesi = listeyeYaz();
+                      yolHesapla(duraklistesi);
+                    },
                     style: ButtonStyle(
                         backgroundColor:
                             MaterialStateProperty.all(Colors.black)),
@@ -102,7 +116,7 @@ class _AdminYolHesaplaState extends State<AdminYolHesapla> {
         ));
   }
 
-  Row durakVeSayi(String durak) {
+  Row durakVeSayi(String durak, TextEditingController text, {double? ucret}) {
     return Row(children: <Widget>[
       SizedBox(
         width: 100,
@@ -117,8 +131,33 @@ class _AdminYolHesaplaState extends State<AdminYolHesapla> {
                 borderRadius: BorderRadius.all(Radius.circular(6))),
             hintText: "0",
           ),
+          controller: text,
         ),
       ),
     ]);
+  }
+
+  List listeyeYaz() {
+    var duraklistesi = <double>[];
+    duraklistesi.add(double.parse(BasiskeleText.text));
+    duraklistesi.add(double.parse(CayirovaText.text));
+    duraklistesi.add(double.parse(DaricaText.text));
+    duraklistesi.add(double.parse(DerinceText.text));
+    duraklistesi.add(double.parse(DilovasiText.text));
+    duraklistesi.add(double.parse(GebzeText.text));
+    duraklistesi.add(double.parse(GolcukText.text));
+    duraklistesi.add(double.parse(KandiraText.text));
+    duraklistesi.add(double.parse(KaramurselText.text));
+    duraklistesi.add(double.parse(KartepeText.text));
+    duraklistesi.add(double.parse(KorfezText.text));
+    duraklistesi.add(double.parse(IzmitText.text));
+    duraklistesi.add(double.parse(YolMaliyetiText.text));
+    return duraklistesi;
+  }
+
+  void yolHesapla(List<double> duraklistesi) {
+    for (int i = 0; i < duraklistesi.length; i++) {
+      if (duraklistesi[i] == 0) {}
+    }
   }
 }
