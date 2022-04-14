@@ -3,12 +3,15 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:yazlab2_proje2_mobil/models/Duraklar.dart';
 
-class Harita extends StatefulWidget {
+class Hesap extends StatefulWidget {
+  var durakVerileri = <double>[];
+
+  Hesap({Key? key, required this.durakVerileri}) : super(key: key);
   @override
-  State<Harita> createState() => _HaritaState();
+  State<Hesap> createState() => _HesapState();
 }
 
-class _HaritaState extends State<Harita> {
+class _HesapState extends State<Hesap> {
   Duraklar Basiskele = new Duraklar(40.709633, 29.923609);
   Duraklar Cayirova = new Duraklar(40.823270, 29.372250);
   Duraklar Darica = new Duraklar(40.773861, 29.401166);
@@ -23,7 +26,7 @@ class _HaritaState extends State<Harita> {
   Duraklar Izmit = new Duraklar(40.764759, 29.940957);
 
   final duraklistesi = <Duraklar>[];
-  _HaritaState() {
+  veriler() {
     duraklistesi.add(Basiskele);
     duraklistesi.add(Cayirova);
     duraklistesi.add(Darica);
@@ -41,18 +44,22 @@ class _HaritaState extends State<Harita> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey.shade200,
       appBar: AppBar(
-        backgroundColor: Colors.green,
         centerTitle: true,
-        title: Text("Admin Harita Ekranı"),
+        title: Text("YOL HESABI VE HARİTA"),
+        backgroundColor: Colors.green,
       ),
-      body: Column(
-        children: <Widget>[
-          Expanded(
-            child: mapWidget(),
+      body: Center(
+        child: Container(
+          child: Column(
+            children: [
+              Text(widget.durakVerileri.toString()),
+              Expanded(
+                child: mapWidget(),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
@@ -75,19 +82,22 @@ class _HaritaState extends State<Harita> {
   }
 
   List<Marker> duraklar() {
+    veriler();
     final markerlar = <Marker>[];
-    for (var item in duraklistesi) {
-      Marker marker = new Marker(
-        width: 45,
-        height: 45,
-        point: new LatLng(item.lat, item.long),
-        builder: (context) => new Container(
-          child: IconButton(
-              icon: Icon(Icons.add_location_sharp, color: Colors.purple),
-              onPressed: () {}),
-        ),
-      );
-      markerlar.add(marker);
+    for (int i = 0; i < widget.durakVerileri.length - 1; i++) {
+      if (widget.durakVerileri[i] != 0) {
+        Marker marker = new Marker(
+          width: 45,
+          height: 45,
+          point: new LatLng(duraklistesi[i].lat, duraklistesi[i].long),
+          builder: (context) => new Container(
+            child: IconButton(
+                icon: Icon(Icons.add_location_sharp, color: Colors.purple),
+                onPressed: () {}),
+          ),
+        );
+        markerlar.add(marker);
+      }
     }
     Marker marker = new Marker(
       width: 45,
@@ -100,19 +110,7 @@ class _HaritaState extends State<Harita> {
       ),
     );
     markerlar.add(marker);
+
     return markerlar;
-  }
-
-  List connectTheDots(data) {
-    var c = [];
-
-    var x = 40;
-    var y = 40;
-    c.add([x, y]);
-    x = 41;
-    y = 41;
-    c.add([x, y]);
-
-    return c;
   }
 }

@@ -1,6 +1,7 @@
 import 'dart:ffi';
 
 import 'package:flutter/material.dart';
+import 'package:yazlab2_proje2_mobil/admin_pages/admin_hesap.dart';
 
 class AdminYolHesapla extends StatefulWidget {
   @override
@@ -96,7 +97,13 @@ class _AdminYolHesaplaState extends State<AdminYolHesapla> {
                     onPressed: () {
                       var duraklistesi;
                       duraklistesi = listeyeYaz();
-                      yolHesapla(duraklistesi);
+                      print("duraklar"+duraklistesi.toString());
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>Hesap(durakVerileri: duraklistesi,),
+                        ),
+                      );
                     },
                     style: ButtonStyle(
                         backgroundColor:
@@ -138,6 +145,9 @@ class _AdminYolHesaplaState extends State<AdminYolHesapla> {
   }
 
   List listeyeYaz() {
+    if (YolMaliyetiText.text == "0") {
+      YolMaliyetiText.text = "1";
+    }
     var duraklistesi = <double>[];
     duraklistesi.add(double.parse(BasiskeleText.text));
     duraklistesi.add(double.parse(CayirovaText.text));
@@ -156,8 +166,16 @@ class _AdminYolHesaplaState extends State<AdminYolHesapla> {
   }
 
   void yolHesapla(List<double> duraklistesi) {
+    var duraklar = <int>[];
+
     for (int i = 0; i < duraklistesi.length; i++) {
-      if (duraklistesi[i] == 0) {}
+      print(duraklistesi[i].toString());
     }
+    for (int i = 0; i < duraklistesi.length; i++) {
+      if (duraklistesi[i] != 0) {
+        duraklar.add(i);
+      }
+    }
+    print(duraklar.toString());
   }
 }
