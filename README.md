@@ -1,6 +1,6 @@
-# yazlab2_proje2_mobil
+# Kocaeli Üniversitesi Ulaşım Uygulaması
 
-A new Flutter project.
+Kocaeli'nin ilçelerinden umuttepe yerleşkesine ulaşmak için takip edilmesi gereken yolu çizdiren uygulama.
 
 ## Getting Started
 
