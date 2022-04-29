@@ -16,14 +16,14 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: SafeArea(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.all(8.0),
+        child: Padding(
+          padding: const EdgeInsets.all(30),
           child: Form(
             key: _formKey,
             child: Padding(
               padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Text(
                     'Kocaeli Üniversitesi Ulaşım Uygulaması',
@@ -43,40 +43,14 @@ class _LoginPageState extends State<LoginPage> {
                   SizedBox(
                     height: 20,
                   ),
-                  Text(
-                    "KULLANICI",
-                    style: TextStyle(
-                        fontStyle: FontStyle.italic,
-                        fontWeight: FontWeight.bold),
-                  ),
                   SizedBox(
                     height: 10,
                   ),
-                  TextFromField_Kullanici(),
                   SizedBox(
-                    height: 20,
+                    width: 100.0,
+                    height: 50.0,
+                    child: adminEkrani(),
                   ),
-                  Text(
-                    "ŞİFRE",
-                    style: TextStyle(
-                        fontStyle: FontStyle.italic,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  TextFromField_Sifre(),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  _LoginButton(),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      adminEkrani(),
-                      kullaniciEkrani(),
-                    ],
-                  )
                 ],
               ),
             ),
@@ -86,112 +60,9 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  TextFormField TextFromField_Kullanici() {
-    return TextFormField(
-      decoration: InputDecoration(
-          focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.green),
-          ),
-          hintText: "Kullanıcı Adı",
-          labelStyle: TextStyle(color: Colors.green),
-          border: OutlineInputBorder()),
-      validator: (value) {
-        if (value!.isEmpty) {
-          return "Kullanıcı Adını Giriniz";
-        } else {
-          return null;
-        }
-      },
-      onSaved: (value) {
-        username = value!;
-      },
-    );
-  }
-
-  TextFormField TextFromField_Sifre() {
-    return TextFormField(
-      decoration: InputDecoration(
-          focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.green),
-          ),
-          hintText: "Şifre",
-          labelStyle: TextStyle(color: Colors.green),
-          border: OutlineInputBorder()),
-      validator: (value) {
-        if (value!.isEmpty) {
-          return "Şifrenizi Giriniz";
-        } else {
-          return null;
-        }
-      },
-      onSaved: (value) {
-        password = value!;
-      },
-    );
-  }
-
-  Widget _LoginButton() => RaisedButton(
-      child: Text(
-        "Giriş Yap",
-        style: TextStyle(fontWeight: FontWeight.bold),
-      ),
-      onPressed: () {
-        if (_formKey.currentState!.validate()) {
-          _formKey.currentState!.save();
-          debugPrint("username : $username , password : $password");
-        }
-        if (username == "kullanici" && password == "1234") {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => UserHomePage(
-                username: username,
-              ),
-            ),
-          );
-        } else if (username == "admin" && password == "admin") {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => AdminPage(),
-            ),
-          );
-        } else {
-          showDialog(
-              context: context,
-              builder: (BuildContext context) {
-                return AlertDialog(
-                  title: Text("Giriş Bilgileri Hatalıdır"),
-                  actions: [
-                    MaterialButton(
-                      color: Colors.black,
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
-                      child:
-                          Text("tamam", style: TextStyle(color: Colors.white)),
-                    )
-                  ],
-                );
-              });
-        }
-      });
   Widget adminEkrani() => RaisedButton(
       child: Text(
-        "Kullanici Ekrani",
-        style: TextStyle(fontWeight: FontWeight.bold),
-      ),
-      onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => UserHomePage(),
-          ),
-        );
-      });
-  Widget kullaniciEkrani() => RaisedButton(
-      child: Text(
-        "Admin Ekranı",
+        "Giriş",
         style: TextStyle(fontWeight: FontWeight.bold),
       ),
       onPressed: () {

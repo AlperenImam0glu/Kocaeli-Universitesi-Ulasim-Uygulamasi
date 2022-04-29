@@ -53,7 +53,7 @@ class _HesapState extends State<Hesap> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text("YOL HESABI"),
+        title: Text("Çizilen Yol"),
         backgroundColor: Colors.green,
       ),
       body: Center(

@@ -22,7 +22,6 @@ class _AdminYolHesaplaState extends State<AdminYolHesapla> {
   TextEditingController KartepeText = TextEditingController(text: '0');
   TextEditingController KorfezText = TextEditingController(text: '0');
   TextEditingController IzmitText = TextEditingController(text: '0');
-  TextEditingController YolMaliyetiText = TextEditingController(text: '0');
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +29,7 @@ class _AdminYolHesaplaState extends State<AdminYolHesapla> {
         appBar: AppBar(
           backgroundColor: Colors.green,
           centerTitle: true,
-          title: Text("Admin Yol Hesaplama"),
+          title: Text("Admin Yol Çizdir"),
         ),
         body: SingleChildScrollView(
           child: Center(
@@ -89,7 +88,6 @@ class _AdminYolHesaplaState extends State<AdminYolHesapla> {
                   SizedBox(
                     height: yukseklik,
                   ),
-                  durakVeSayi("Yol maliyeti", YolMaliyetiText),
                   SizedBox(
                     height: 10,
                   ),
@@ -147,9 +145,6 @@ class _AdminYolHesaplaState extends State<AdminYolHesapla> {
   }
 
   List listeyeYaz() {
-    if (YolMaliyetiText.text == "0") {
-      YolMaliyetiText.text = "1";
-    }
     var duraklistesi = <double>[];
     duraklistesi.add(double.parse(KandiraText.text));
     duraklistesi.add(double.parse(CayirovaText.text));
@@ -163,7 +158,6 @@ class _AdminYolHesaplaState extends State<AdminYolHesapla> {
     duraklistesi.add(double.parse(BasiskeleText.text));
     duraklistesi.add(double.parse(KartepeText.text));
     duraklistesi.add(double.parse(IzmitText.text));
-    duraklistesi.add(double.parse(YolMaliyetiText.text));
     return duraklistesi;
   }
 
